@@ -12,7 +12,7 @@ createProduct = () => {
     price: productPrice,
     imageUrl: productImage,
     description: productDescription,
-    name: "test",
+    name: "t",
     brand: productName,
   };
 
