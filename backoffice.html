@@ -56,7 +56,7 @@
     />
 
     <title>Amazon 2</title>
-    <script src="index.js"></script>
+    <script src="backoffice.js"></script>
     <style>
       .card-img-top {
         width: 25%;
@@ -68,7 +68,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Amazon 2</a>
+      <a class="navbar-brand" href="/index.html">Amazon 2</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -83,28 +83,60 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Front Page <span class="sr-only">(current)</span></a
-            >
+            <a class="nav-link" href="/index.html">Front Page </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/backoffice.html">Back Office</a>
+            <a class="nav-link" href="/backoffice.html"
+              >Back Office<span class="sr-only">(current)</span></a
+            >
           </li>
         </ul>
       </div>
     </nav>
-    <h1 class="text-center">Amazon 2</h1>
-    <div class="card-group" id="cardList">
-      <div class="card">
-        <img src="" class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">API NOT WORKING</p>
-          <p class="card-text">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </p>
+    <h1 class="text-center mb-4">Back Office</h1>
+    <h2 class="text-center mb-3">Create a product:</h2>
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <label class="font-weight-bold" for="productNameForm"
+            >Product Name</label
+          >
+          <input
+            class="form-control"
+            id="productNameForm"
+            placeholder="Insert the name of the product"
+          />
         </div>
-      </div>
+        <div class="form-group">
+          <label class="font-weight-bold" for="productImageForm"
+            >Product Image URL</label
+          >
+          <input
+            class="form-control"
+            id="productImageForm"
+            placeholder="Input the URL for the product image"
+          />
+        </div>
+        <div class="form-group">
+          <label for="productDescriptionForm" class="font-weight-bold"
+            >Product Description</label
+          >
+          <textarea
+            class="form-control"
+            id="productDescriptionForm"
+            rows="3"
+            placeholder="Write the product's description"
+          ></textarea>
+        </div>
+        <button
+          type="button"
+          style="position: absolute; left: 47%"
+          class="btn btn-primary"
+          onclick="createProduct()"
+        >
+          Create Product
+        </button>
+      </form>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
