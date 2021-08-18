@@ -23,6 +23,12 @@ const grabAPI = async () => {
 
   results = await response.json();
 
+  let addedData = JSON.parse(sessionStorage.getItem("product"));
+
+  if (addedData !== null) {
+    results.push(addedData);
+  }
+
   return results;
 };
 

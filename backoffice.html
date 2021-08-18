@@ -57,13 +57,6 @@
 
     <title>Amazon 2</title>
     <script src="backoffice.js"></script>
-    <style>
-      .card-img-top {
-        width: 25%;
-      }
-      .card {
-      }
-    </style>
   </head>
 
   <body>
@@ -118,6 +111,17 @@
           />
         </div>
         <div class="form-group">
+          <label for="productPriceForm" class="font-weight-bold"
+            >Product Price</label
+          >
+          <textarea
+            class="form-control"
+            id="productPriceForm"
+            rows="3"
+            placeholder="Input the product's price in £"
+          ></textarea>
+        </div>
+        <div class="form-group">
           <label for="productDescriptionForm" class="font-weight-bold"
             >Product Description</label
           >
@@ -130,13 +134,21 @@
         </div>
         <button
           type="button"
-          style="position: absolute; left: 47%"
+          style="position: absolute; left: 46%"
           class="btn btn-primary"
           onclick="createProduct()"
         >
           Create Product
         </button>
       </form>
+      <button
+        type="button"
+        style="position: absolute; right: 21%"
+        class="btn btn-danger"
+        onclick="clearProducts()"
+      >
+        Clear all products
+      </button>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
