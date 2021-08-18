@@ -7,34 +7,58 @@ createProduct = () => {
     "productDescriptionForm"
   ).value;
   let productPrice = document.getElementById("productPriceForm").value;
-  let randomID = makeid(20);
-  console.log(randomID);
 
   let product = {
-    brand: productName,
+    price: productPrice,
     imageUrl: productImage,
     description: productDescription,
-    price: productPrice,
-    userId: randomID,
+    name: "test",
+    brand: productName,
   };
 
-  console.log(product);
+  addToAPI(product);
 
-  sessionStorage.setItem("product", JSON.stringify(product));
+  console.log(product);
+  let alert = document.createElement("div");
+  let addAlert = document.getElementById("alertContainer");
+  addAlert.innerHTML = "";
+  alert.classList.add("alert");
+  alert.classList.add("alert-primary");
+  alert.innerText = "Object Added!";
+
+  addAlert.appendChild(alert);
 };
 
 clearProducts = () => {
-  sessionStorage.clear();
-  console.log("Storage cleared!");
+  let addAlert = document.getElementById("alertContainer");
+  addAlert.innerHTML = "";
+  let alert = document.createElement("div");
+  alert.classList.add("alert");
+  alert.classList.add("alert-danger");
+  alert.innerText = "Products cleared!";
+
+  addAlert.appendChild(alert);
 };
 
-function makeid(length) {
-  var result = "";
-  var characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  var charactersLength = characters.length;
-  for (var i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return result;
-}
+addToAPI = (product) => {
+  var myHeaders = new Headers();
+  myHeaders.append(
+    "Authorization",
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgxN2M1ZWU3ODE4NzAwMTVjMjY3YTgiLCJpYXQiOjE2MjkzMDE4NzcsImV4cCI6MTYzMDUxMTQ3N30.LDpPQMQ1_KOfDhoiXOfIubADMG3ltSz-jnVSwZloBLY"
+  );
+  myHeaders.append("Content-Type", "application/json");
+
+  var data = JSON.stringify(product);
+
+  var requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: data,
+    redirect: "follow",
+  };
+
+  fetch("https://striveschool-api.herokuapp.com/api/product", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.log("error", error));
+};
