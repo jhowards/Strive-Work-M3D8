@@ -19,25 +19,14 @@ createProduct = () => {
   addToAPI(product);
 
   console.log(product);
-  let alert = document.createElement("div");
-  let addAlert = document.getElementById("alertContainer");
-  addAlert.innerHTML = "";
-  alert.classList.add("alert");
-  alert.classList.add("alert-primary");
-  alert.innerText = "Object Added!";
 
-  addAlert.appendChild(alert);
+  let type = "alert-warning";
+  showAlert("Object Added!", type);
 };
 
 clearProducts = () => {
-  let addAlert = document.getElementById("alertContainer");
-  addAlert.innerHTML = "";
-  let alert = document.createElement("div");
-  alert.classList.add("alert");
-  alert.classList.add("alert-danger");
-  alert.innerText = "Products cleared!";
-
-  addAlert.appendChild(alert);
+  let type = "alert-danger";
+  showAlert("All products cleared!", type);
 };
 
 addToAPI = (product) => {
@@ -61,4 +50,19 @@ addToAPI = (product) => {
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => console.log("error", error));
+};
+
+showAlert = (alert, type) => {
+  // Display alert
+  let addAlert = document.getElementById("showalert");
+  addAlert.classList.add(type);
+  addAlert.style.display = "block";
+  addAlert.innerText = alert;
+
+  // Hide alert after 3 seconds
+  setTimeout(function () {
+    addAlert.classList.remove(type);
+    addAlert.style.display = "none";
+    addAlert.innerText = "";
+  }, 3000);
 };

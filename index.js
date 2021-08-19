@@ -31,30 +31,30 @@ const generateCards = (results) => {
     .map(function (results) {
       return `
 
-    <div class="col mb-4">
-    <div class="card mb-3">
-  <div class="row no-gutters">
-    <div class="col-md-4 d-flex">
-      <img src="${results.imageUrl}" class="card-img-top mx-auto" alt="...">
-    </div>
-    <div class="col-md-8">
-    <div class="card-body">
-    <h5 class="card-title">${results.brand}</h5>
-    <b class="card-text">
-    £${results.price}
-    </b>
-    <p class="card-text">
-    ${results.description}
-    </p>
-    <p class="card-text">
-      <small class="text-muted">${results.userId}</small>
-    </p>
-  </div>
-    </div>
-  </div>
-</div>
-</div>
- `;
+            <div class="col mb-4">
+            <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-4 d-flex">
+              <img src="${results.imageUrl}" class="card-img-top mx-auto" alt="...">
+            </div>
+            <div class="col-md-8">
+            <div class="card-body">
+            <h5 class="card-title">${results.brand}</h5>
+            <b class="card-text">
+            £${results.price}
+            </b>
+            <p class="card-text">
+            ${results.description}
+            </p>
+            <p class="card-text">
+              <small class="text-muted">${results.userId}</small>
+            </p>
+          </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        `;
     })
     .join("");
 };
